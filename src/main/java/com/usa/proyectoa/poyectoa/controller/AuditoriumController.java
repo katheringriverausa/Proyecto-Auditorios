@@ -3,6 +3,7 @@ package com.usa.proyectoa.poyectoa.controller;
 import com.usa.proyectoa.poyectoa.entities.Auditorium;
 import com.usa.proyectoa.poyectoa.service.AuditoriumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class AuditoriumController {
     }
 
     @PostMapping ("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Auditorium save(@RequestBody Auditorium a){
         return auditoriumService.save(a);
     }

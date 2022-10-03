@@ -4,6 +4,7 @@ package com.usa.proyectoa.poyectoa.controller;
 import com.usa.proyectoa.poyectoa.entities.Message;
 import com.usa.proyectoa.poyectoa.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class MessageController {
     }
 
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Message save(@RequestBody Message a){
         return messageService.save(a);
     }
