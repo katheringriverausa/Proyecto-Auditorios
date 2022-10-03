@@ -19,7 +19,7 @@ public class Auditorium implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("auditoriums")
+    @JsonIgnoreProperties("audiences")
     private Category category;
 
     public Integer getId() {

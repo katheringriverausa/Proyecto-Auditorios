@@ -19,35 +19,35 @@ public class Category implements Serializable {
     @JsonIgnoreProperties("category")
     private List<Auditorium> audiences;
 
-    public Integer getId() {
+    public Integer getId (){
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId (Integer id){
         this.id = id;
     }
 
-    public String getName() {
+    public String getName (){
         return name;
     }
 
-    public void setName(String name) {
+    public void setName (String name){
         this.name = name;
     }
 
-    public List<Auditorium> getAuditoriums() {
-        return audiences;
-    }
-
-    public void setAuditoriums(List<Auditorium> auditoriums) {
-        this.audiences = auditoriums;
-    }
-
-    public String getDescription() {
+    public String getDescription (){
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription (String description){
         this.description = description;
+    }
+
+    public List<Auditorium> getAudiences (){
+        return audiences;
+    }
+
+    public void setAudiences (List<Auditorium> audiences){
+        this.audiences = audiences;
     }
 }
