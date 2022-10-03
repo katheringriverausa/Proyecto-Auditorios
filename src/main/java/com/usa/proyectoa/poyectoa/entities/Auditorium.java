@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -21,6 +22,10 @@ public class Auditorium implements Serializable {
     @JoinColumn(name = "categoryId")
     @JsonIgnoreProperties("audiences")
     private Category category;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "audience")
+    @JsonIgnoreProperties("auditorium")
+    private List<Reservation> reservations;
 
     public Integer getId() {
         return id;
@@ -64,9 +69,15 @@ public class Auditorium implements Serializable {
     public String getDescription (){
         return description;
     }
-
     public void setDescription (String description){
         this.description = description;
     }
 
+    public List<Reservation> getReservations (){
+        return reservations;
+    }
+
+    public void setReservations (List<Reservation> reservations){
+        this.reservations = reservations;
+    }
 }

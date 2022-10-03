@@ -20,6 +20,11 @@ public class Reservation implements Serializable {
     @JsonIgnoreProperties("reservations")
     private Client client;
 
+    @ManyToOne
+    @JoinColumn (name = "audience")
+    @JsonIgnoreProperties("reservations")
+    private Auditorium audience;
+
     public Integer getId (){
         return id;
     }
@@ -50,5 +55,13 @@ public class Reservation implements Serializable {
 
     public void setClient (Client client){
         this.client = client;
+    }
+
+    public Auditorium getAudience (){
+        return audience;
+    }
+
+    public void setAudience (Auditorium audience){
+        this.audience = audience;
     }
 }
