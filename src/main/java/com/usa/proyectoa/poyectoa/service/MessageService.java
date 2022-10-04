@@ -24,10 +24,10 @@ public class MessageService {
     }
 
     public Message save(Message m){
-        if(m.getId()==null){
+        if(m.getIdMessage ()==null){
             return messageRepository.save(m);
         }else {
-            Optional<Message> e= messageRepository.getMessage(m.getId());
+            Optional<Message> e= messageRepository.getMessage(m.getIdMessage ());
             if(e.isPresent()){
                 return e.get();
             }else{

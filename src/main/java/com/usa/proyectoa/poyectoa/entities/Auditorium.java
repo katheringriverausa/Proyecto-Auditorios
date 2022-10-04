@@ -22,14 +22,14 @@ public class Auditorium implements Serializable {
     @JoinColumn(name = "categoryId")
     @JsonIgnoreProperties("audiences")
     private Category category;
-
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "audience")
-    @JsonIgnoreProperties("auditorium")
+    @JsonIgnoreProperties({"audience","client"})
+    private List<Message> messages;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "audience")
+    @JsonIgnoreProperties("audience")
     private List<Reservation> reservations;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "audience")
-    @JsonIgnoreProperties("auditorium")
-    private List<Message> messages;
+
 
     public Integer getId() {
         return id;

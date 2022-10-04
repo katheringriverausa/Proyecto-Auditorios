@@ -24,13 +24,15 @@ public class ReservationService {
     }
 
     public Reservation save(Reservation m){
-        if(m.getId()==null){
+        if(m.getIdReservation ()==null){
+            m.setStatus ("created");
             return reservationRepository.save(m);
         }else {
-            Optional<Reservation> e= reservationRepository.getReservation (m.getId());
+            Optional<Reservation> e= reservationRepository.getReservation (m.getIdReservation ());
             if(e.isPresent()){
                 return e.get();
             }else{
+                m.setStatus ("non-created");
                 return reservationRepository.save(m);
             }
         }
@@ -45,5 +47,7 @@ public class ReservationService {
         }
         return flag;
     }
+
+
 
 }

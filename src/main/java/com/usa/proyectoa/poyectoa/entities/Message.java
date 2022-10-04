@@ -11,25 +11,31 @@ import java.util.List;
 public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idMessage;
     private String messageText;
-
-    @ManyToOne
-    @JoinColumn (name = "client")
-    @JsonIgnoreProperties("messages")
-    private Client client;
-
     @ManyToOne
     @JoinColumn (name = "audience")
-    @JsonIgnoreProperties("messages")
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Auditorium audience;
+    @ManyToOne
+    @JoinColumn (name = "client")
+    @JsonIgnoreProperties({"messages", "reservations"})
+    private Client client;
 
-    public Integer getId (){
-        return id;
+    public Integer getIdMessage (){
+        return idMessage;
     }
 
-    public void setId (Integer id){
-        this.id = id;
+    public void setIdMessage (Integer idMessage){
+        this.idMessage = idMessage;
+    }
+
+    public Auditorium getAudience (){
+        return audience;
+    }
+
+    public void setAudience (Auditorium audience){
+        this.audience = audience;
     }
 
     public String getMessageText (){
@@ -47,4 +53,4 @@ public class Message implements Serializable {
     public void setClient (Client client){
         this.client = client;
     }
-}
+    }

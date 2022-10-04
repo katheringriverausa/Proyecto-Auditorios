@@ -22,7 +22,7 @@ public class Client implements Serializable {
     private List<Message> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
-    @JsonIgnoreProperties("client")
+    @JsonIgnoreProperties("reservations")
     private List<Reservation> reservations;
 
     public Integer getIdClient (){
