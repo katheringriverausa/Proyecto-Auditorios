@@ -19,6 +19,11 @@ public class Message implements Serializable {
     @JsonIgnoreProperties("messages")
     private Client client;
 
+    @ManyToOne
+    @JoinColumn (name = "audience")
+    @JsonIgnoreProperties("messages")
+    private Auditorium audience;
+
     public Integer getId (){
         return id;
     }

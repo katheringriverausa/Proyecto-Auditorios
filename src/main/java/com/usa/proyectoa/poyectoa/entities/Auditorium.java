@@ -27,6 +27,10 @@ public class Auditorium implements Serializable {
     @JsonIgnoreProperties("auditorium")
     private List<Reservation> reservations;
 
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "audience")
+    @JsonIgnoreProperties("auditorium")
+    private List<Message> messages;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +83,13 @@ public class Auditorium implements Serializable {
 
     public void setReservations (List<Reservation> reservations){
         this.reservations = reservations;
+    }
+
+    public List<Message> getMessages (){
+        return messages;
+    }
+
+    public void setMessages (List<Message> messages){
+        this.messages = messages;
     }
 }
