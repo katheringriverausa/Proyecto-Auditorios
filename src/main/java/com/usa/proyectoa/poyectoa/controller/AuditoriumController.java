@@ -32,11 +32,13 @@ public class AuditoriumController {
         return auditoriumService.getAuditorium (id);
     }
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Auditorium update(@RequestBody Auditorium a){
         return auditoriumService.update (a);
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
     public boolean delete(@PathVariable("id") int id){
         return auditoriumService.delete (id);
     }
