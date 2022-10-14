@@ -1,6 +1,5 @@
 package com.usa.proyectoa.poyectoa.repository;
 
-import com.usa.proyectoa.poyectoa.entities.Auditorium;
 import com.usa.proyectoa.poyectoa.entities.Message;
 import com.usa.proyectoa.poyectoa.repository.crudRepository.MessageCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;

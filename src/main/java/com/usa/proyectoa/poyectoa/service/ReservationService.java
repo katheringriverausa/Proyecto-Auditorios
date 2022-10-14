@@ -1,6 +1,5 @@
 package com.usa.proyectoa.poyectoa.service;
 
-
 import com.usa.proyectoa.poyectoa.entities.Reservation;
 import com.usa.proyectoa.poyectoa.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +34,26 @@ public class ReservationService {
                 m.setStatus ("non-created");
                 return reservationRepository.save(m);
             }
+        }
+    }
+
+    public Reservation update(Reservation a){
+        if(a.getIdReservation ()!=null){
+            Optional<Reservation> q = reservationRepository.getReservation (a.getIdReservation ());
+            if(q.isPresent()){
+                if(a.getStartDate ()!=null){
+                    q.get().setStartDate (a.getStartDate ());
+                }
+                if(a.getDevolutionDate ()!=null){
+                    q.get().setDevolutionDate (a.getDevolutionDate ());
+                }
+                reservationRepository.save(q.get());
+                return q.get();
+            }else{
+                return a;
+            }
+        }else{
+            return a;
         }
     }
 

@@ -1,6 +1,5 @@
 package com.usa.proyectoa.poyectoa.service;
 
-
 import com.usa.proyectoa.poyectoa.entities.Message;
 import com.usa.proyectoa.poyectoa.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,22 @@ public class MessageService {
             }
         }
     }
-
+    public Message update(Message a){
+        if(a.getIdMessage ()!=null){
+            Optional<Message> q = messageRepository.getMessage (a.getIdMessage());
+            if(q.isPresent()){
+                if(a.getMessageText ()!=null){
+                    q.get().setMessageText(a.getMessageText ());
+                }
+                messageRepository.save(q.get());
+                return q.get();
+            }else{
+                return a;
+            }
+        }else{
+            return a;
+        }
+    }
     public boolean delete(int id){
         boolean flag=false;
         Optional<Message> a = messageRepository.getMessage(id);

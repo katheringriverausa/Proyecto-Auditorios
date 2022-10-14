@@ -1,8 +1,6 @@
 package com.usa.proyectoa.poyectoa.service;
 
-
 import com.usa.proyectoa.poyectoa.entities.Category;
-
 import com.usa.proyectoa.poyectoa.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +18,7 @@ public class CategoryService {
         return categoryRepository.getAll();
     }
 
-    public Optional<Category> getAuditorium(int id){
+    public Optional<Category> getCategory(int id){
         return categoryRepository.getCategory(id);
     }
 
@@ -44,10 +42,7 @@ public class CategoryService {
                 if(a.getName()!=null){
                     q.get().setName(a.getName());
                 }
-                if (a.getName()!=null){
-                    q.get().setName(a.getName());
-                }
-                if (a.getDescription()!=null){
+                 if (a.getDescription()!=null){
                     q.get().setDescription(a.getDescription());
                 }
                 categoryRepository.save(q.get());
