@@ -38,7 +38,6 @@ public class AuditoriumController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public boolean delete(@PathVariable("id") int id){
         return auditoriumService.delete (id);
     }

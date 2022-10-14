@@ -51,6 +51,9 @@ public class AuditoriumService {
                 if (a.getCategory()!=null){
                     q.get().setCategory(a.getCategory());
                 }
+                if (a.getDescription ()!=null){
+                    q.get().setDescription (a.getDescription ());
+                }
                 auditoriumRepository.save(q.get());
                 return q.get();
             }else{
