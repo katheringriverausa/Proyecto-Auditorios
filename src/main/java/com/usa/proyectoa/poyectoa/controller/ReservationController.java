@@ -1,6 +1,9 @@
 package com.usa.proyectoa.poyectoa.controller;
 
 import com.usa.proyectoa.poyectoa.entities.Reservation;
+
+import com.usa.proyectoa.poyectoa.entities.custom.CountClients;
+import com.usa.proyectoa.poyectoa.entities.custom.StatusAmount;
 import com.usa.proyectoa.poyectoa.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,4 +46,19 @@ public class ReservationController {
     public boolean delete(@PathVariable("id") int id){
         return reservationService.delete (id);
     }
+
+    @GetMapping("report-status")
+    public StatusAmount getReservationsStatus(){
+        return reservationService.getStatusReport ();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getDateReport(@PathVariable("dateOne") String d1, @PathVariable("dateTwo") String d2){
+        return reservationService.getReservationsPeriod (d1, d2);
+    }
+    @GetMapping("/report-clients")
+    public List<CountClients> getCountClients(){
+        return reservationService.getTopCLients ();
+    }
 }
+

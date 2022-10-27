@@ -1,6 +1,7 @@
 package com.usa.proyectoa.poyectoa.service;
 
 import com.usa.proyectoa.poyectoa.entities.Auditorium;
+import com.usa.proyectoa.poyectoa.entities.custom.CountClients;
 import com.usa.proyectoa.poyectoa.repository.AuditoriumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

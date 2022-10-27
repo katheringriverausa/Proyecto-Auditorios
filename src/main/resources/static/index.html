@@ -8,6 +8,19 @@
     <title>Title</title>
 </head>
 <body>
-
+    <div class="container unauthenticated">
+        Para Iniciar Sesion con Github
+        <a href="/oauth2/authorization/github">Haz click aqui</a>
+    </div>
+    <div class="container authenticated" style="display: none">
+        Autenticado como: <span id="user"></span>
+    </div>
 </body>
+<script type="text/javascript">
+    $.get("/user", function (data){
+        $("#user").html(data.name);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
+    })
+</script>
 </html>

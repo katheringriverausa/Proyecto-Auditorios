@@ -1,6 +1,7 @@
 package com.usa.proyectoa.poyectoa.service;
 
 import com.usa.proyectoa.poyectoa.entities.Client;
+import com.usa.proyectoa.poyectoa.entities.custom.CountClients;
 import com.usa.proyectoa.poyectoa.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,18 +11,14 @@ import java.util.Optional;
 
 @Service
 public class ClientService {
-
     @Autowired
     private ClientRepository clientRepository;
-
     public List<Client> getAll(){
         return clientRepository.getAll();
     }
-
     public Optional<Client> getClient (int id){
         return clientRepository.getClient (id);
     }
-
     public Client save(Client a){
         if(a.getIdClient()==null){
             return clientRepository.save(a);
@@ -73,5 +70,6 @@ public class ClientService {
         }
         return flag;
     }
+
 
 }

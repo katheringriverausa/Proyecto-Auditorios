@@ -1,9 +1,12 @@
 package com.usa.proyectoa.poyectoa.repository;
 import com.usa.proyectoa.poyectoa.entities.Client;
+import com.usa.proyectoa.poyectoa.entities.Reservation;
+import com.usa.proyectoa.poyectoa.entities.custom.CountClients;
 import com.usa.proyectoa.poyectoa.repository.crudRepository.ClientCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +32,8 @@ public class ClientRepository {
     public void delete (Client c){
         clientCrudRepository.delete (c);
     }
+
+
 }
 
 
